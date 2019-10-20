@@ -48,6 +48,9 @@ public class Client implements Runnable{
         while (working) {            
             try {
                 str = read().trim();
+                if(str != null && str.toUpperCase().equals("STOP")){
+                    System.exit(0);
+                }
                 if(str != null && !str.equals("")){
                     sc.newMessage(str);
                 }

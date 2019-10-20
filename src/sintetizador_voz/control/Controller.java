@@ -20,6 +20,7 @@ public class Controller {
     
     private static Controller controller;
     private ServerController serverController;
+    private SynthesizerController synthesizerController;
     private Main frameMain;
     private DAO dao;
     
@@ -31,6 +32,7 @@ public class Controller {
         try {
             System.out.println("Starting services");
             serverController = new ServerController(3333);
+            synthesizerController = SynthesizerController.getInstance();
             serverController.start();
             System.out.println("Server started");
             this.frameMain = frame;
@@ -47,10 +49,12 @@ public class Controller {
     public void newMessage(String str) {
         System.out.println("Message: "+ str);
         Room r = dao.read(str.trim().toUpperCase());
-        if(r != null)
-            frameMain.setUpdate(str + "\n" + r.getNome(), r.getSobre());
-        else
+        if(r != null){
+            synthesizerController.execute(r.getSobre());
+            frameMain.setUpdate(str.toUpperCase() + "\n" + r.getNome().toUpperCase(), r.getSobre().toUpperCase());
+        } else {
             System.err.println("Room not found");
+        }
     }
     
 }

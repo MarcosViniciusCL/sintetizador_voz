@@ -5,7 +5,10 @@
  */
 package sintetizador_voz.view;
 
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import sintetizador_voz.control.Controller;
 
 /**
@@ -179,6 +182,12 @@ public class Main extends javax.swing.JFrame {
             Controller.getInstance().InitServices(frame);
             frame.setLocationRelativeTo(null);
             frame.setExtendedState(MAXIMIZED_BOTH);
+            frame.addWindowListener(new WindowAdapter() {
+                @Override
+                public void windowClosing(WindowEvent evt){
+                    close();
+                }
+            });
             //frame.setUndecorated(true);
             frame.setVisible(true);
         });
@@ -197,5 +206,9 @@ public class Main extends javax.swing.JFrame {
     public void setUpdate(String sala, String sobre) {
         jTextField1.setText(sala);
         jTextField2.setText(sobre);
+    }
+    
+    public static void close(){
+        System.exit(0);
     }
 }
