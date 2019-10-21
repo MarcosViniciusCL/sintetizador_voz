@@ -54,6 +54,9 @@ public class DAO {
         } catch (IOException ex) {
             System.err.println("JSON erro");
             return null;
+        } catch (org.json.JSONException ex){
+            //System.err.println("Room not found");
+            return null;
         }
     }
 }
