@@ -1,6 +1,6 @@
 {
   "S2" : {
-    "nome": "Sistema Embarcados",
+    "nome": "LaRC - Laboratório de Robótica e Controle",
     "sobre": "Uma sala muito engracada, dona Maria tá la"
   },
 
@@ -10,7 +10,7 @@
   },
 
   "S3": {
-    "nome": "LENDA (Negócio de jogo lá)",
-    "sobre": "Sarinho tem varias pessoas escrevendo lá"
+    "nome": "LEnDA - Laboratório de Entretenimento Digital Aplicado",
+    "sobre": "Laboratório de desenvolvimento de jogos digitais, com ênfase em projetos para pessoas com diversos tipos de deficiência."
   }
 }
